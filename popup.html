@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻译结果</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <img src="icons/icon-48.svg" class="logo" alt="logo">
+      <span class="title">邮件翻译助手</span>
+    </div>
+    <button class="settings-btn" id="settingsBtn" title="设置">⚙</button>
+  </div>
+
+  <!-- 未翻译状态 -->
+  <div class="state" id="stateEmpty">
+    <div class="empty-icon">📧</div>
+    <p class="empty-text">在邮件中选中文字，然后右键点击「翻译选中文字」</p>
+  </div>
+
+  <!-- 加载中状态 -->
+  <div class="state hidden" id="stateLoading">
+    <div class="spinner"></div>
+    <p class="loading-text">正在翻译…</p>
+  </div>
+
+  <!-- 错误状态 -->
+  <div class="state hidden" id="stateError">
+    <div class="error-icon">⚠️</div>
+    <p class="error-msg" id="errorMsg"></p>
+    <button class="btn-secondary" id="goSettings">前往设置配置 API</button>
+  </div>
+
+  <!-- 翻译结果 -->
+  <div class="state hidden" id="stateResult">
+    <div class="section">
+      <div class="section-label">
+        <span id="fromLangLabel">原文</span>
+        <span class="engine-tag" id="engineTag"></span>
+      </div>
+      <div class="text-box original" id="originalText"></div>
+    </div>
+
+    <div class="arrow-row">
+      <div class="arrow-line"></div>
+      <span class="arrow-icon">▼</span>
+      <span class="lang-badge" id="toLangBadge"></span>
+      <div class="arrow-line"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">译文</div>
+      <div class="text-box translated" id="translatedText"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" id="copyBtn">📋 复制译文</button>
+      <span class="time-label" id="timeLabel"></span>
+    </div>
+
+    <div class="toast hidden" id="toast">已复制！</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

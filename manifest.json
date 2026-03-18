@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "邮件翻译助手",
+  "version": "1.0.0",
+  "description": "在 Thunderbird 中快速翻译邮件内容，支持一键翻译整封邮件",
+  "author": "MailTranslator",
+  
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "mail-translator@iven.wu", 
+      "strict_min_version": "115.0"
+    }
+  },
+
+  "permissions": [
+    "menus",
+    "storage",
+    "messagesRead",
+    "tabs",
+    "messageDisplay",
+    "https://fanyi-api.baidu.com/*" 
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "icons": {
+    "48": "icons/icon-48.svg",
+    "96": "icons/icon-96.svg"
+  }
+}
